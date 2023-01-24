@@ -1,8 +1,8 @@
-package com.nico.agendaContable.domain;
+package com.nico.agendaContable.GastoAPP.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.Data;
+
+import javax.persistence.*;
 
 
 @Data
@@ -10,8 +10,10 @@ import lombok.Data;
 public class Gasto {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nombre;
+    @Enumerated(EnumType.STRING)
     private TipoGasto tipoGasto;
     private String mesGasto;
     private boolean esGastoMensual;

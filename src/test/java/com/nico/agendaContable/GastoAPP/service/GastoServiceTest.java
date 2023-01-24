@@ -1,11 +1,13 @@
-package com.nico.agendaContable.service;
+package com.nico.agendaContable.GastoAPP.service;
 
-import com.nico.agendaContable.AbstractUtilTest;
-import com.nico.agendaContable.Builder.GastoBuilder;
-import com.nico.agendaContable.Service.GastoService;
-import com.nico.agendaContable.domain.Gasto;
+import com.nico.agendaContable.GastoAPP.AbstractUtilTest;
+import com.nico.agendaContable.GastoAPP.builder.GastoBuilder;
+import com.nico.agendaContable.GastoAPP.domain.Gasto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
@@ -53,5 +55,21 @@ public class GastoServiceTest extends AbstractUtilTest {
         assertThatIllegalArgumentException()
                 .isThrownBy(()->gastoService.crearGasto(gastoNuevo))
                 .withMessage("El nombre es obligatorio");
+    }
+
+    @Test
+    public void obtener_conGastos_retornaGastos() {
+        GastoBuilder.gastoValido().build(entityManager);
+        List<Gasto> gastos = gastoService.obtener();
+
+        assertThat(gastos.get(0).getId()).isEqualTo(2);
+    }
+
+    @Test
+    public void obtener_sinGastos_retornaListaVacia() {
+        List<Gasto> gastos = gastoService.obtener();
+
+        assertThat(gastos).isEmpty();
+
     }
 }

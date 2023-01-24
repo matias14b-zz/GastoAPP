@@ -1,11 +1,14 @@
-package com.nico.agendaContable.Service;
+package com.nico.agendaContable.GastoAPP.service;
 
 
-import com.nico.agendaContable.domain.Gasto;
-import com.nico.agendaContable.repository.GastoRepository;
+import com.nico.agendaContable.GastoAPP.domain.Gasto;
+import com.nico.agendaContable.GastoAPP.repository.GastoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+
+import javax.persistence.EntityManager;
+import java.util.List;
 
 @Service
 public class GastoService {
@@ -18,5 +21,10 @@ public class GastoService {
         Assert.isTrue(!gasto.getNombre().isEmpty(), "El nombre es obligatorio");
         Assert.hasText(gasto.getNombre(), "El nombre es obligatorio");
         return gastoRepository.save(gasto);
+    }
+
+    public List<Gasto> obtener() {
+        final List<Gasto> all = gastoRepository.findAll();
+        return all;
     }
 }

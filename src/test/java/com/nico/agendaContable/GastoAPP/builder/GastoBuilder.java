@@ -1,7 +1,8 @@
-package com.nico.agendaContable.Builder;
+package com.nico.agendaContable.GastoAPP.builder;
 
-import com.nico.agendaContable.domain.Gasto;
-import com.nico.agendaContable.domain.TipoGasto;
+
+import com.nico.agendaContable.GastoAPP.domain.Gasto;
+import com.nico.agendaContable.GastoAPP.domain.TipoGasto;
 import com.somospnt.test.builder.AbstractPersistenceBuilder;
 
 import java.time.LocalDateTime;
@@ -40,4 +41,5 @@ public class GastoBuilder extends AbstractPersistenceBuilder<Gasto> {
         instance.setMesGasto(mes);
         return this;
     }
+
 }

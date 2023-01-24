@@ -1,6 +1,6 @@
-package com.nico.agendaContable.repository;
+package com.nico.agendaContable.GastoAPP.repository;
 
-import com.nico.agendaContable.domain.Gasto;
+import com.nico.agendaContable.GastoAPP.domain.Gasto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

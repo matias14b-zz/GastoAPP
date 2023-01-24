@@ -1,4 +1,4 @@
-package com.nico.agendaContable.domain;
+package com.nico.agendaContable.GastoAPP.domain;
 
 public enum TipoGasto {
 
